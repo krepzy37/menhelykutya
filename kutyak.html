@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="kutyaApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <style>
+
+        body{
+        /*Oldal háttérszíne. belső margó*/
+            background-color: #6e4c66 ;
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        table{
+            margin: auto;
+            margin-top: 10px;
+            
+        }
+        table, tr, td, th{
+            /*Táblázat kerete, háttérszíne, szöveg igazítása*/
+            border: 1px solid #000000;
+            border-collapse: collapse;
+            background-color: #52384c;
+            text-align: left;
+            color: white;
+        }
+        th{
+            /*Fejléc háttérszíne, szöveg színe*/
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        .input-container {
+            width: 57%; /* vagy az adott táblázat szélessége */
+            margin: 0 auto; /* középre igazítjuk */
+            text-align: center; /* tartalom középre igazítása */
+        }
+        input[type="text"]{
+            /*Input mező kerekítése, szélessége, felso margó, keret színe és betűmérete*/
+            border-radius: 4px;
+            width: 100%;
+            
+            border-color: #ccc;
+            font-size: 16px;
+            margin: 10 auto;
+        }
+
+
+    </style>
+</head>
+<body ng-controller="kutyaCtrl">
+    <!--Kereső mező-->
+    
+    <table>
+        <div class="input-container">
+            <input type="text" ng-model="search" placeholder="Keresés...">
+        </div>
+        <thead> <!--Fejléc-->
+            <th>Sorszám</th>
+            <th>Név</th>
+            <th>Fajta</th>
+            <th>Életkor</th>
+            <th>Utolsó orvosi ellenőrzés</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="kutya in kutyak | filter: search">
+                <!--Adatok-->
+                <td>{{$index + 1}}</td>
+                <td>{{kutya.nev}}</td>
+                <td>{{kutya.fajta}}</td>
+                <td>{{kutya.eletkor}}</td>
+                <td>{{kutya.utolsoE}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        //App és controller
+        let app = angular.module("kutyaApp", []);
+        app.controller("kutyaCtrl", function($scope, $http){
+            //json file-ból beolvasás
+            $http.get('kutyak.json').then(function(response){
+                $scope.kutyak = response.data;
+                console.log($scope.kutyak);
+                 
+            })
+        })
+    </script>
+</body>
+</html>

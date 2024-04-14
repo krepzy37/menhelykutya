@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #5eb4c2;
+    color: #fff;
+    padding: 20px;
+}
+
+header h1 {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Módosítottam a grid-template-columns értékét */
+    grid-gap: 20px;
+    padding: 20px;
+}
+.features, .dogs {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+
+
+.dog-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #5eb4c2;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+img{
+    max-width: 500px;
+    max-height: 300px;
+}
+
+a{
+    text-decoration: none;
+    color: #333;
+}
+button{
+    
+    background-color: green;
+    
+}
+button a{
+    color: white;
+}
+button:hover{
+    background-color: yellowgreen;
+}
+
+
+/* Image slideshow stílusai */
+.slideshow {
+    max-width: 500px;
+    position: relative;
+    margin: auto;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+}
+
+.slide-text {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 96%;
+    padding: 10px;
+}
+
+/* Dot stílusai */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active {
+    background-color: #717171;
+}
+h2{
+    text-align: center;
+}
+
+p{
+    line-height: 150%;
+    
+}
